@@ -1,0 +1,52 @@
+:root{
+  --primary: #0d6efd;
+  --bg: #f4f6f9;
+  --card: #ffffff;
+}
+
+body {
+  background: var(--bg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #222;
+}
+
+a { text-decoration:none; }
+
+.navbar-brand { font-weight: 600; }
+
+.card { border: none; }
+
+.container { max-width: 1100px; }
+
+footer { font-size: 0.9rem; }
+
+.install-toast {
+  position: fixed;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0d6efd;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: bottom .4s ease;
+  z-index: 999999;
+}
+
+.install-toast.show {
+  bottom: 20px;
+}
+
+.install-toast button {
+  background: #fff;
+  color: #0d6efd;
+  border: none;
+  padding: 6px 12px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+

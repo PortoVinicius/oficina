@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Painel Administrativo{% endblock %}
+{% block content %}
+<h2 class="mb-4">Pedidos Recebidos</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Telefone</th>
+      <th>Serviço</th>
+      <th>Detalhes</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in pedidos %}
+    <tr>
+      <td>{{ p.id }}</td>
+      <td>{{ p.nome }}</td>
+      <td>Numero (Oculto)</td>
+      <td>{{ p.servico.nome if p.servico else '—' }}</td>
+      <td>{{ p.detalhes }}</td>
+      <td>{{ p.criado_em }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

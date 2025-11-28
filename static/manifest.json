@@ -1,0 +1,23 @@
+{
+  "name": "Oficina Digital",
+  "short_name": "Oficina",
+  "description": "Agende serviços automotivos de forma rápida, prática e digital.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#0d6efd",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/static/img/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/img/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

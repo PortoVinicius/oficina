@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="box">
+
+    <h2>Pedido enviado com sucesso!</h2>
+    <p>Obrigado pelo contato, {{ nome }}.</p>
+
+    <a href="/" class="btn btn-primary mt-3">Voltar ao início</a>
+
+    <hr>
+
+    {# ----- mensagem organizada ----- #}
+    {% set mensagem =
+        "Olá! Novo pedido:\n"
+        ~ "Nome: " ~ nome ~ "\n"
+        ~ "Telefone: " ~ telefone ~ "\n"
+        ~ "Serviço: " ~ servico
+    %}
+
+    <a
+        href="https://wa.me/999999999?text={{ mensagem | urlencode }}"
+        class="btn btn-success w-100 mt-3"
+        target="_blank"
+    >
+        Enviar para o WhatsApp da Oficina
+    </a>
+
+</div>
+{% endblock %}

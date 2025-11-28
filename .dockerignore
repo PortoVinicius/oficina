@@ -1,0 +1,35 @@
+# Pastas do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ambiente virtual
+venv/
+.venv/
+
+# Configs de editor
+.vscode/
+.idea/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Instância Flask (NUNCA subir)
+instance/
+*.db
+
+# Cache / build local
+dist/
+build/
+
+# Logs
+*.log
+
+# Git
+.git
+.gitignore
+
+# Docker
+docker-compose.yml
