@@ -1,38 +1,33 @@
-let deferredPrompt = null;
+document.addEventListener("DOMContentLoaded", () => {
+    let deferredPrompt = null;
 
-const pwaToast = document.getElementById("pwa-toast");
-const btnInstall = document.getElementById("btn-install");
-const btnClose = document.getElementById("btn-close-toast");
+    const pwaToast = document.getElementById("pwa-toast");
+    const btnInstall = document.getElementById("btn-install");
+    const btnClose = document.getElementById("btn-close-toast");
 
-// Captura o evento antes da instalação
-window.addEventListener("beforeinstallprompt", (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
+    window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
 
-    // Mostra o toast
-    if (pwaToast) {
-        pwaToast.style.display = "flex";
+        if (pwaToast) pwaToast.style.display = "flex";
+    });
+
+    if (btnClose) {
+        btnClose.addEventListener("click", () => {
+            if (pwaToast) pwaToast.style.display = "none";
+        });
+    }
+
+    if (btnInstall) {
+        btnInstall.addEventListener("click", async () => {
+            if (!deferredPrompt) return;
+
+            deferredPrompt.prompt();
+            const choice = await deferredPrompt.userChoice;
+            console.log("Resultado da instalação:", choice.outcome);
+
+            deferredPrompt = null;
+            if (pwaToast) pwaToast.style.display = "none";
+        });
     }
 });
-
-// Botão "Agora não"
-if (btnClose) {
-    btnClose.addEventListener("click", () => {
-        pwaToast.style.display = "none";
-    });
-}
-
-// Botão "Instalar"
-if (btnInstall) {
-    btnInstall.addEventListener("click", async () => {
-        if (!deferredPrompt) return;
-
-        deferredPrompt.prompt(); // Mostra popup oficial
-        const choice = await deferredPrompt.userChoice;
-
-        console.log("Resultado da instalação:", choice.outcome);
-
-        deferredPrompt = null;
-        pwaToast.style.display = "none"; // Fecha o toast
-    });
-}
